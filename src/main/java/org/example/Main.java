@@ -1,3 +1,5 @@
+package org.example;
+
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
@@ -9,7 +11,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         // Arquivo de entrada (PNG) e saída (PDF)
         String caminhoImagem = "D:/Videos/The Witcher 3/The Witcher 3 Screenshot 2024.12.08 - 20.25.34.17.png";
-        String caminhoPdf = "D:/Videos/Content/sla2.pdf";
+        String caminhoPdf = "D:/Videos/Content/sla.pdf";
 
         // Criar escritor de PDF
         PdfWriter writer = new PdfWriter(caminhoPdf);
