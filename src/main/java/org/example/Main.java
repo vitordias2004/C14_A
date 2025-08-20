@@ -19,7 +19,7 @@ public class Main {
         String caminhoPdf = "C:\\Users\\felip\\Downloads\\fotos teste\\meu_pdf_gerado.pdf";
 
         // 2. Adicione ou remova os caminhos das imagens que você quer converter.
-        List<String> caminhosImagens = Arrays.asList(
+        List<String> caminhossImagens = Arrays.asList(
                 "C:\\Users\\felip\\Downloads\\fotos teste\\s1mple.jpeg",
                 "C:\\Users\\felip\\Downloads\\fotos teste\\fentanyljr.jpeg",
                 "C:\\Users\\felip\\Downloads\\fotos teste\\aborgue.jpg",
@@ -36,8 +36,8 @@ public class Main {
 
             System.out.println("Iniciando a criação do PDF em: " + caminhoPdf);
 
-            for (int i = 0; i < caminhosImagens.size(); i++) {
-                String caminhoImagem = caminhosImagens.get(i);
+            for (int i = 0; i < caminhossImagens.size(); i++) {
+                String caminhoImagem = caminhossImagens.get(i);
                 File arquivoImagem = new File(caminhoImagem);
 
                 if (!arquivoImagem.exists()) {
@@ -51,13 +51,13 @@ public class Main {
                 image.setAutoScaleWidth(true);
                 document.add(image);
 
-                if (i < caminhosImagens.size() - 1) {
+                if (i < caminhossImagens.size() - 1) {
                     document.add(new AreaBreak());
                 }
             }
 
             document.close();
-            System.out.println("PDF com " + caminhosImagens.size() + " página(s) gerado com sucesso!");
+            System.out.println("PDF com " + caminhossImagens.size() + " página(s) gerado com sucesso!");
 
         } catch (FileNotFoundException e) {
             System.err.println("Erro ao criar o arquivo PDF. Verifique o caminho e as permissões: " + caminhoPdf);
