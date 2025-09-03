@@ -27,3 +27,9 @@ O código principal está na classe `Main.java`, e realiza os seguintes passos:
   <version>7.1.18</version>
   <type>pom</type>
 </dependency>
+```
+
+## Importancia de testes
+Após o commit do Edu, 6 de 9 testes de ImageValidator pararam de funcionar.
+
+Com isso foi fácil achar o erro e consertar.
