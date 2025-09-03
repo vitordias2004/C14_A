@@ -4,7 +4,7 @@ import java.io.File;
 
 public class ImageValidator {
 
-    private static final String[] EXTENSOES_VALIDAS = {".mp4", ".jpeg", ".html", ".gif", ".bmp"};
+    private static final String[] EXTENSOES_VALIDAS = {".jpg", ".jpeg", ".png", ".gif", ".bmp"};
 
     public boolean validarImagem(String caminhoImagem) {
         if (caminhoImagem == null || caminhoImagem.trim().isEmpty()) {
