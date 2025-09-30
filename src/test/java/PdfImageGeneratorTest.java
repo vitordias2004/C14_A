@@ -138,4 +138,37 @@ public class PdfImageGeneratorTest {
         assertFalse(generator.adicionarImagemAoDocumento(document, caminhoImagem));
         document.close();
     }
+
+    @Test
+    public void testarGerarPdfComCaminhoNulo() {
+        PdfImageGenerator generator = new PdfImageGenerator();
+        String caminhoPdf = null;
+        List<String> caminhoImagens = Arrays.asList(imagemTeste1);
+
+        assertFalse(generator.gerarPdfComImagens(caminhoPdf, caminhoImagens));
+    }
+
+    @Test
+    public void testarProcessarImagensMistas() throws FileNotFoundException {
+        PdfImageGenerator generator = new PdfImageGenerator();
+        String caminhoPdf = tempDir.resolve("teste_misto.pdf").toString();
+        List<String> caminhoImagens = Arrays.asList(imagemTeste1, "caminho_invalido.png", imagemTeste2, "outro_invalido.png", imagemTeste3);
+
+        PdfWriter writer = new PdfWriter(caminhoPdf);
+        PdfDocument pdf = new PdfDocument(writer);
+        Document document = new Document(pdf);
+
+        assertEquals(3, generator.processarImagens(document, caminhoImagens));
+        document.close();
+    }
+
+    @Test
+    public void testarGerarPdfEmDiretorioInexistente() {
+        PdfImageGenerator generator = new PdfImageGenerator();
+        String caminhoPdf = tempDir.resolve("dir_nao_existe/subdir/teste.pdf").toString();
+        List<String> caminhoImagens = Arrays.asList(imagemTeste1);
+
+        assertFalse(generator.gerarPdfComImagens(caminhoPdf, caminhoImagens));
+    }
+
 }
