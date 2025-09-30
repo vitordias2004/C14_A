@@ -57,3 +57,31 @@ jobs:
       with:
         name: app-jar
         path: target/*.jar
+
+  notify:
+    name: Notificar por Email
+    runs-on: ubuntu-latest
+    needs: [ test, build ]
+
+    steps:
+      - name: Enviar email de notificação
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "CI/CD - Build ${{ job.status }} - ${{ github.repository }}"
+          to: ${{ secrets.EMAIL_TO }}
+          from: CI/CD Bot
+          body: |
+            Repositório: ${{ github.repository }}
+            Branch: ${{ github.ref_name }}
+            Commit: ${{ github.sha }}
+            Autor: ${{ github.actor }}
+            
+            Status dos Jobs:
+            - Testes: ${{ needs.test.result }}
+            - Build: ${{ needs.build.result }}
+            
+            Ver detalhes: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
