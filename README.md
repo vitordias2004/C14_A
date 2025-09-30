@@ -17,7 +17,7 @@ Sistema para converter uma ou múltiplas imagens (`.png`, `.jpg`, `.jpeg`, etc.)
 - ✅ Validação de imagens antes do processamento
 - ✅ Uma imagem por página
 
-## 🏗 Arquitetura
+##  Arquitetura
 
 **PdfImageGenerator** - Gerencia criação do PDF e processamento de imagens  
 **ImageValidator** - Valida existência e formato das imagens  
@@ -67,7 +67,7 @@ mvn clean install
 mvn exec:java -Dexec.mainClass="org.example.Main"
 ```
 
-## 🔄CI/CD - GitHub Actions
+## CI/CD - GitHub Actions
 
 Pipeline automatizado que executa em push e pull requests para `main`:
 
