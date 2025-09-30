@@ -8,7 +8,7 @@ public class ImageValidator {
 
     public boolean validarImagem(String caminhoImagem) {
         if (caminhoImagem == null || caminhoImagem.trim().isEmpty()) {
-            System.out.println("Caminho da imagem está vazio ou nulo");
+            System.out.println("Caminho da imagem está vazio ou nulo ");
             return false;
         }
 
